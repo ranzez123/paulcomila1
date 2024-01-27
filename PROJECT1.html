@@ -1,66 +1,82 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>ACTIVITY 1</title>
-    <h1>ACTIVITY1: BOX</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balls Project</title>
 </head>
-<style>
-body {
-  padding: 0;
-}
-#body{
-  padding: 10px;
-  margin: 0;
-  align-items: center;
-  position:absolute;
-}
-div{
-  margin: 0;
-  border: 3px solid black;
-}
-.box{
-  width: 600px;
-  height: 170px;
-  margin: 20px;
-  display: inline-block;
-}    
-#purple{
-  background-color: purple;
-  width: 940px;
-  height:100px;  
-}
-#red{
-  background-color: red;
-  width:280px;
-  height:350px;
-}  
-#green{
-  background-color: green;
-   width:280px;
-  height:350px;
-}   
-#orange{
-  background-color: orange;
-   width:280px;
-  height:350px;
-}   
-</style>
 <body>
-    <div id="body">
+    <canvas id="myGame">
       
-        <div id="purple" class="box"> 
-        </div>
-		<br/>
-		<div id="red" class="box">
-        </div>
-		
-        <div id="green" class="box"> 
-        </div>
-			
-        <div id="orange" class="box">
-        </div>
 
+    </canvas>
+    <script>
+        const canvas = document.getElementById("myGame");
+        const ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.arc(100,75,50,0,2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "cyan";
+        ctx.fill();
+
+        class Ball{
+            //states (properties)
+            constructor(name, color = null){
+                this.name = name;
+                this.color = color ? color : "red";
+                this.rotation = 0;
+            }
+
+            draw(context){
+                 ctx.beginPath();
+                 ctx.arc(100,75,50,0,2 * Math.PI);
+                 ctx.stroke();
+                 ctx.fillStyle = "cyan";
+                 ctx.fill();
+
+            }
+            // behaviour (function/methods)
+            rotate(){
+                // do rotate
+                console.log('do rotate');
+                this.rotation +=10;
+            }
+    };
+
+        const ball = new Ball('poldo', 'red');
+            ball.draw(ctx);
+
+
+        // create objects from Class Ball
+      /*  const michaelBalls = new Ball("michael");
+        const vrenBall = new Ball("vren");
+        const kiheBall = new Ball("kihe", "balck");
+
+            console.log(
+              "What is the name of the first Ball?",
+            michaelBalls.name,
+            michaelBalls.color
+
+            );
+            
+            console.log(
+              "What is the name of the second Ball?",
+            kiheBall.name,
+            kiheBall.color
+
+            );
+            console.log(
+              "What is the name of the third Ball?",
+            vrenBall.name,
+            vrenBall.color
+
+            );
+
+            vrenBall.rotate();
+            vrenBall.rotate();
+            console.log(vrenBall.rotation);
+            */
+    </script>
 </body>
-
 </html>
